@@ -1,20 +1,60 @@
+// Make the DIV element draggable:
+dragElement(document.getElementById("todo"));
+dragElement(document.getElementById("weather"));
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    // if present, the header is where you move the DIV from:
+    document.getElementById(elmnt.id + "header").onpointerdown = dragMouseDown;
+  } else {
+    // otherwise, move the DIV from anywhere inside the DIV:
+    elmnt.onpointerdown = dragMouseDown;
+  }
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onpointerup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onpointermove = elementDrag;
+  }
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+  function closeDragElement() {
+    // stop moving when mouse button is released:
+    document.onpointerup = null;
+    document.onpointermove = null;
+  }
+}
 // Selectors
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 const filterOption = document.querySelector(".filter-todo");
 const api = {
-  key: config.key,
+  key: "09af3877d3b2ade5f8cbcb4c2f01902b",
   base: "http://api.openweathermap.org/data/2.5/"
 }
 const searchbox = document.querySelector('.search-box');
+
 //Event Listeners
 searchbox.addEventListener('keypress', setQuery);
 document.addEventListener('DOMContentLoaded', getTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener('click', deleteCheck);
 filterOption.addEventListener('click', filterTodo);
-//Functions
 function setQuery(event){
   if (event.keyCode == 13){
     getResults(searchbox.value);
@@ -64,12 +104,12 @@ function addTodo(event) {
     saveLocalTodos(todoInput.value);
     //Check mark
     const completedButton = document.createElement("button");
-    completedButton.innerHTML = '<i class="fas fa-check"</i>';
+    completedButton.innerHTML = '<i class="fas fa-check"></i>';
     completedButton.classList.add("complete-btn");
     todoDiv.appendChild(completedButton);
     //Trash
     const trashButton = document.createElement("button");
-    trashButton.innerHTML = '<i class="fas fa-trash"</i>';
+    trashButton.innerHTML = '<i class="fas fa-trash"tabindex="3"></i>';
     trashButton.classList.add("trash-btn");
     todoDiv.appendChild(trashButton);
     //Append to list
@@ -171,4 +211,4 @@ function removeLocalTodos(todo){
   const todoIndex = todo.children[0].innerText;
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
-} 
+}
