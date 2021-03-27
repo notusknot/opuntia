@@ -2,87 +2,134 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" contrent="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link defer href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link defer rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous"/>
+    <link defer rel="shortcut icon" type="image/ico" href="logo.ico" defer/>
     <title>Opuntia</title>
 </head>
 <body>
-    <div>
-        <input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-            <div class="ball"></div>
-        </label>
-    </div>
-    <div class="app-wrap" id="todo">
+    <div class="dropDown">
+        <button class="dropButton"><i class="fas fa-bars" aria-label="Enter settings menu"></i></button>
+            <div class="dropDownContent">
+                <div class="settingName" id="flatName">Flat mode</div>
+                <input type="checkbox" id="checkbox"><label for="checkbox" class="label" id="flat">
+                    <div class="ball"></div> 
+                </label>
+                <div class="settingName" id="darkName">Dark mode</div>
+                <input type="checkbox" id="checkbox2"><label for="checkbox2" class="label2" id="dark">
+                    <div class="ball2"></div>
+                </label>
+            </div>
+     </div>
+
+    <div class="appWrap" id="todoWrap">
+        <header class="wrapHeader" id="todoWrapHeader"></header>
         <form>
-            <input type="text" class="todo-input" placeholder="Add task..." tabindex="0" label="Add your task.">
-            <button class="todo-button" type="submit">
+            <input type="text" class="todoInput" placeholder="Add task..." aria-label="Add your task.">
+            <button class="todoButton" type="submit" aria-label="Add item to list">
                 <i class="fas fa-plus-circle"></i>
             </button>
             <div class="select">
-                <select name="todos" class="filter-todo">
+                <i class="fas fa-chevron-circle-down button"></i>
+                <select name="todos" class="filterTodo">
                     <option value="all">All</option>
                     <option value="completed">Done</option>
                     <option value="incomplete">Not done</option>
                 </select>
             </div>
         </form>
-        <div class="todo-container">
-            <ul class="todo-list"></ul>
+        <div class="todoContainer">
+            <ul class="todoList"></ul>
         </div>
-        <header class="wrap-header" id="todoheader"></header>
     </div>
-    <div class="app-wrap" id="weather">
+    
+    <div class="appWrap" id="weatherWrap">
+        <header class="wrapHeader" id="weatherWrapHeader"></header>
         <header>
-            <input type="text" class="search-box" placeholder="Search for a city..." onfocus=this.value='' tabindex="1">
+            <input type="text" class="searchBox" placeholder="Search for a city..." onfocus=this.value='' aria-label="Search for a city">
         </header>
         <main>
             <div class="current">
                 <div class="temp"><span></span></div>
                 <div class="weather"></div>
-                <div class="high-low"></div>
+                <div class="highLow"></div>
             </div>
             <div class="location">
-                <div class="city"> Search for a city!</div>
+                <div class="city">Search for a city!</div>
                 <div class="date"></div>
             </div>
         </main>
-        <header class="wrap-header" id="weatherheader"></header>
     </div>
-    <div class="app-wrap" id="notes">
-        <div class="add-note">
-            <a href="#my-modal" class="add-note">Add note</a>
+    <div class="appWrap" id="calendarWrap">
+        <header class="wrapHeader" id="calendarWrapHeader"></header>
+        <div id="container">
+            <div id="header">
+                <div id="monthDisplay"></div>
+                <div>
+                    <button id="backButton">Back</button>
+                    <button id="nextButton">Next</button>
+                </div>
+            </div>
+            <div id="weekdays">
+            <div>Sunday</div>
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Friday</div>
+            <div>Saturday</div>
+            </div>
+            <div id="calendar"></div>
+        </div>
+
+        <div id="newEventModal">
+            <h2>New Event</h2>
+      
+            <input id="eventTitleInput" placeholder="Add title..." aria-label="Add a title for your event"/>
+            <button id="saveButton">Save</button>
+            <button id="cancelButton">Cancel</button>
+          </div>
+        <div id="modalBackDrop"></div>
+    </div>
+    <div class="appWrap" id="notesWrap">
+        <header class="wrapHeader" id="notesWrapHeader"></header>
+        <div class="addNote">
+            <a href="#my-modal" class="addNote">Add note</a>
         </div>
         <div id="my-modal" class="modal">
-            <div class="modal-content">
+            <div class="modalContent">
                 <h1 class="header"> Add note </h1>
                 <hr>Title</hr>
-                <input type="text" class="title" placeholder="Add title..."></br>
-                <hr>Note
-                <hr>
-                <input class="note" type="text" placeholder="Add note..."></br>
-                <form class="note-form" action="">
+                <input type="text" class="title" placeholder="Add title..." aria-label="Add the title for your note.">
+                <hr>Note</hr>
+                <input class="note" type="text" placeholder="Add note..." aria-label="Add your note.">
+                <form class="noteForm" action="">
                     <div class="buttons">
                         <input class="submit" type="submit">
                         <div class="cancel">
-                            <a href="#close" class="cancel-btn">Cancel</a>
+                            <a href="#close" class="cancelButton">Cancel</a>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <table class="note-table">
+        <table class="noteTable">
             <tr>
                 <td class="header">Title</td>
                 <td class="header">Note</td>
             </tr>
         </table>
-        <header class="wrap-header" id="notesheader"></header>
-        <script src="app.js" defer></script>
     </div>
+    <a href="https://github.com/notusknot/opuntia" target="_blank">
+        <i class="fab fa-github">
+            <div class="link">Contribute on GitHub</div>
+        </i>
+    </a>
+
+    <script src="app.js" defer></script>
 </body>
 </html>
