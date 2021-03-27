@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Free Web tutorials">
+    <meta name="description" content="Simple productivity website">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,11 +21,11 @@
                 </label>
                 <div class="settingName" id="darkName">Dark mode</div>
                 <input type="checkbox" id="checkbox2"><label for="checkbox2" class="label2" id="dark">
-                    <div class="ball2"></div>
+                    <div class="ball"></div>
                 </label>
             </div>
      </div>
-
+    
     <div class="appWrap" id="todoWrap">
         <header class="wrapHeader" id="todoWrapHeader"></header>
         <form>
@@ -53,15 +53,11 @@
             <input type="text" class="searchBox" placeholder="Search for a city..." onfocus=this.value='' aria-label="Search for a city">
         </header>
         <main>
-            <div class="current">
-                <div class="temp"><span></span></div>
-                <div class="weather"></div>
-                <div class="highLow"></div>
-            </div>
-            <div class="location">
-                <div class="city">Search for a city!</div>
-                <div class="date"></div>
-            </div>
+            <div class="temp"><span></span></div>
+            <div class="weather"></div>
+            <div class="highLow"></div>
+            <div class="city">Search for a city!</div>
+            <div class="date"></div>
         </main>
     </div>
     <div class="appWrap" id="calendarWrap">
@@ -95,41 +91,11 @@
           </div>
         <div id="modalBackDrop"></div>
     </div>
-    <div class="appWrap" id="notesWrap">
-        <header class="wrapHeader" id="notesWrapHeader"></header>
-        <div class="addNote">
-            <a href="#my-modal" class="addNote">Add note</a>
-        </div>
-        <div id="my-modal" class="modal">
-            <div class="modalContent">
-                <h1 class="header"> Add note </h1>
-                <hr>Title</hr>
-                <input type="text" class="title" placeholder="Add title..." aria-label="Add the title for your note.">
-                <hr>Note</hr>
-                <input class="note" type="text" placeholder="Add note..." aria-label="Add your note.">
-                <form class="noteForm" action="">
-                    <div class="buttons">
-                        <input class="submit" type="submit">
-                        <div class="cancel">
-                            <a href="#close" class="cancelButton">Cancel</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <table class="noteTable">
-            <tr>
-                <td class="header">Title</td>
-                <td class="header">Note</td>
-            </tr>
-        </table>
-    </div>
     <a href="https://github.com/notusknot/opuntia" target="_blank">
         <i class="fab fa-github">
             <div class="link">Contribute on GitHub</div>
         </i>
     </a>
-
     <script src="app.js" defer></script>
 </body>
 </html>

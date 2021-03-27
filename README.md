@@ -1,6 +1,9 @@
-https://img.shields.io/github/license/notusknot/opuntia
 
 # Opuntia - a productivity website
+
+![GitHub](https://img.shields.io/github/license/notusknot/opuntia)
+![GitHub Repo stars](https://img.shields.io/github/stars/notusknot/opuntia?logo=github)
+![GitHub repo size](https://img.shields.io/github/repo-size/notusknot/opuntia?logo=github)
 
 Opuntia is a simple, open source, and customizeable productivity website build with vanilla HTML5, JavaScript, and CSS.
 

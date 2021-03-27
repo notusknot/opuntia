@@ -12,7 +12,6 @@ checkbox2.addEventListener('change',()=>{
 dragElement(document.getElementById("todoWrap"));
 dragElement(document.getElementById("weatherWrap"));
 dragElement(document.getElementById("calendarWrap"));
-dragElement(document.getElementById("notesWrap"));
 function dragElement(elmnt) {
     var pos1=0,
         pos2=0,
@@ -183,14 +182,14 @@ function getResults(query) {
     }).then(displayResults);
 }
 function displayResults(weather) {
-    let city=document.querySelector('.location .city');
+    let city=document.querySelector('.city');
     city.innerText=`${weather.name}, ${weather.sys.country}`;
     let now=new Date();
-    let date=document.querySelector('.location .date');
+    let date=document.querySelector('.date');
     date.innerText=dateBuilder(now);
-    let temp=document.querySelector('.current .temp');
+    let temp=document.querySelector('.temp');
     temp.innerHTML=`${Math.round(weather.main.temp)}<span>°c</span>`;
-    let weather_el=document.querySelector('.current .weather');
+    let weather_el=document.querySelector('.weather');
     weather_el.innerText=weather.weather[0].main;
     let highlow=document.querySelector('.highLow');
     highlow.innerText=`${Math.round(weather.main.temp_min)}°c / ${Math.round(weather.main.temp_max)}°c`;
@@ -276,70 +275,3 @@ function initButtons(){
 }
 initButtons();
 load();
-
-//NOTES
-
-let modal=document.querySelector('.modal');
-let noteForm=document.querySelector('.noteForm');
-let noteTable=document.querySelector('.noteTable');
-let cancel=document. querySelector('.cancelButton');
-let noteDeleteButtons;
-let noteList=JSON.parse(localStorage.getItem('notes')) || [];
-noteForm.addEventListener('submit', (e)=>{
-  addNote(e);
-});
-function addNote(e){
-    e.preventDefault();
-    let newNote={};
-    let title=document.querySelector('.title');
-    let note=document.querySelector('.note');
-    if(title.value == '' || note.value == ''){
-      return alert('Please enter both fields.');
-    } else {
-      newNote.title=title.value;
-      newNote.note=note.value;
-    }
-    title.value='';
-    note.value='';
-    noteList.push(newNote);
-    appendNotes();
-    cancel.click();
-}
-function appendNotes(){
-  noteTable.innerHTML ='';
-  noteList.map(note =>{
-    let tr=document.createElement('tr');
-    tr.classList='noteItem';
-    let tdTitle=document.createElement('td');
-    tdTitle.innerText=note.title;
-    let tdNote=document.createElement('td');
-    tdNote.innerText=note.note;
-    let tdDelete=document.createElement('td');
-    tdDelete.innerHTML='&times';
-    tdDelete.classList.add('delete-item');
-    tr.appendChild(tdTitle);
-    tr.appendChild(tdNote);
-    tr.appendChild(tdDelete);
-    noteTable.appendChild(tr);
-    getDeleteButtons();
-    localStorage.setItem('notes', JSON.stringify(noteList));
-  })
-}
-function getDeleteButtons(){
-  noteDeleteButtons=Array.from(document.querySelectorAll('.delete-item'))
-  noteDeleteButtons.forEach(button =>{
-    let noteTitle=button.previousSibling.previousSibling.innerText;
-    button.addEventListener('click', () => {
-      deleteNote(noteTitle);
-    })
-  })
-}
-function deleteNote(noteTitle){
-    for(let i=0; i < noteList.length; i++) {
-      if(noteList[i].title == noteTitle){
-        noteList.splice(i, 1);
-      }
-    }
-    localStorage.setItem('notes', JSON.stringify(noteList))
-    appendNotes()
-}
