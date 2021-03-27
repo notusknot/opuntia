@@ -7,6 +7,8 @@
 
 Opuntia is a simple, open source, and customizeable productivity website build with vanilla HTML5, JavaScript, and CSS.
 
+![Screenshot of Opuntia](/images/screenshot.png)
+
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
