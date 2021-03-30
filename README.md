@@ -25,7 +25,7 @@ This project is made with:
 * CSS3 with no external libraries or frameworks
 
 ## Setup
-To run this project, you can simply visit https://notusknot.github.io/opuntia
+To run this project, you can simply visit https://notusknot.github.io/opuntia/src
 
 Alternatively, if you would like to run it natively or host it yourself, you can simply clone this repository and open the files in your code editor of choice. All the code is 100% free and open source, so feel free to modify or distribute it as you please. 
 
