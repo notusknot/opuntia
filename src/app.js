@@ -10,13 +10,13 @@ const flatTheme = localStorage.getItem('flat');
 const darkTheme = localStorage.getItem('dark');
 const cornerTheme = localStorage.getItem('corner');
 
-
 if (flatTheme) {
     document.documentElement.setAttribute('data-theme', flatTheme);
     if (flatTheme === 'enabled') {
         flatCheckbox.checked = true;
         document.body.classList.add('flat');
-    }if (flatTheme === 'disabled') {
+    }
+    if (flatTheme === 'disabled') {
         flatCheckbox.checked = false;
         document.body.classList.remove('flat');
     }
@@ -83,6 +83,7 @@ function switchThemeCorner(e) {
 cornerCheckbox.addEventListener('change', switchThemeCorner, false);
 
 //DRAGGING
+
 dragElement(document.getElementById('todoWrap'));
 dragElement(document.getElementById('weatherWrap'));
 dragElement(document.getElementById('calendarWrap'));

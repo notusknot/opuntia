@@ -6,7 +6,7 @@
     user-select: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    transition: box-shadow 0.4s, opacity 0.4s, backdrop-filter 0.4s, border-radius 0.4s;
+    
 }
 
 body {
@@ -15,12 +15,13 @@ body {
     min-height: 100vh;
     background: linear-gradient(-135deg, #fc466b, #3f5efb);
     color: #303030;
+    transition: box-shadow 0.4s, opacity 0.4s, backdrop-filter 0.4s, border-radius 0.4s;
     overflow: hidden;
 }
 
 input {
     position: absolute;
-    top: 2rem;
+    top: 3rem;
     left: 5%;
     width: 90%;
     height: 3rem;
@@ -62,7 +63,7 @@ button:hover,
     position: absolute;
     min-width: 23rem;
     min-height: 23rem;
-    padding-top: 5rem;
+    padding-top: 6rem;
     resize: both;
     overflow: auto;
     border-radius: 1.5rem;
@@ -75,7 +76,7 @@ button:hover,
     position: absolute;
     top: 0;
     width: 100%;
-    padding: 0.75rem;
+    padding: 1rem;
     background-color: #ffffff26;
     cursor: move;
     z-index: 3;
@@ -85,11 +86,10 @@ button:hover,
     position: absolute;
     top: 0;
     left: 0;
-    margin: 0.5rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: #ffffff4d;
-    color: #000;
+    margin:.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
 }
 
 #calendarWrap {
@@ -103,7 +103,7 @@ button:hover,
 
 .todoButton {
     position: absolute;
-    top: 2rem;
+    top: 3rem;
     right: 35%;
     font-size: 3rem;
 }
@@ -196,7 +196,7 @@ select {
 
 .select {
     position: absolute;
-    top: 2rem;
+    top: 3rem;
     right: 5%;
     width: 25%;
 }
@@ -410,9 +410,9 @@ body.corner * {
     padding: 1rem;
     display: grid;
     grid-template-areas:
-        'header header header'
-        'addElementTodo addElementWeather addElementCalendar'
-        'todoImage weatherImage calendarImage';
+        'header header header header'
+        'addElementTodo addElementWeather addElementCalendar header'
+        'todoImage weatherImage calendarImage header';
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 2fr 2fr;
     align-items: center;
