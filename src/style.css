@@ -440,11 +440,6 @@ h1 {
     grid-area: check;
 }
 
-.addElementHeader{
-    position: absolute;
-    top:0;
-    left:0;
-}
 .addElementDiv{
     display:flex;
     justify-content: space-between;
@@ -454,15 +449,18 @@ h1 {
     width:100%;
 }
 
+.closeModalButton{
+    font-size:2rem;
+    position:absolute;
+    top:calc(15% + 1lhlrem);
+    width:2rem;
+}
+
 img {
     width: 15rem;
     border-radius: 12px;
     box-shadow: 0 0px 25px -4px #1e1e3c40;
     margin:.5rem;
-}
-
-.show {
-    display: block;
 }
 
 .dropButton {

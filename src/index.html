@@ -7,20 +7,20 @@
     <link rel='stylesheet' href='./style.css'>
     <link rel='preconnect' href='https://fonts.gstatic.com'>
     <link defer href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet'>
-    <link defer rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' integrity='sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==' crossorigin='anonymous'/>
-    <link defer rel='shortcut icon' type='image/ico' href='logo.ico' defer/>
+    <link defer rel='stylesheet'  href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' integrity='sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==' crossorigin='anonymous'/>
     <title>Opuntia</title>
 </head>
 
 <body>
     <div class='addElement'>
-        <button class='addButton'><i class='fas fa-plus'></i></button>
+        <button class='addButton' aria-label='Add element'><i class='fas fa-plus'></i></button>
     </div>
     <div class='addElementModalBD'>
+        
         <div class='addElementModal'>
-            <h1 class="addElementHeader">What module would you like to add?</h1>
+            <button class='closeModalButton'><i class="fas fa-times-circle"></i></button>
             <div class='addElementDiv'>
-                <input class='addElementSelect' id='addElementTodo' type='checkbox'>Todo list<img src='/images/todo.png' alt='placeholder' class='todoImage'>
+                <input class='addElementSelect' id='addElementTodo' type='checkbox'>Todo list<img src='/images/todo.webp' alt='placeholder' class='todoImage'>
             </div>
             <div class="addElementDiv">
                 <input class='addElementSelect' id='addElementWeather' type='checkbox'>Weather<img src='/images/todo.png' alt='placeholder' class='weatherImage'>
@@ -52,7 +52,7 @@
 
     <div class='appWrap' id='todoWrap'>
         <header class='wrapHeader' id='todoWrapHeader'>
-            <button class='removeButton'><i class="fas fa-times-circle"></i></button>
+            <button class='removeButton' aria-label='Remove widget'><i class="fas fa-times-circle"></i></button>
         </header>
         <form>
             <input type='text' class='todoInput' placeholder='Add task...' aria-label='Add your task.'>
@@ -75,7 +75,7 @@
 
     <div class='appWrap' id='weatherWrap'>
         <header class='wrapHeader' id='weatherWrapHeader'>
-            <button class='removeButton'><i class="fas fa-times-circle"></i></button>
+            <button class='removeButton' aria-label='Remove widget'><i class="fas fa-times-circle"></i></button>
         </header>
         <header>
             <input type='text' class='searchBox' placeholder='Search for a city...' onfocus=this.value='' aria-label='Search for a city'>
@@ -91,7 +91,7 @@
 
     <div class='appWrap' id='calendarWrap'>
         <header class='wrapHeader' id='calendarWrapHeader'>
-            <button class='removeButton'><i class="fas fa-times-circle"></i></button>
+            <button class='removeButton' aria-label='Remove widget'><i class="fas fa-times-circle"></i></button>
         </header>
         <div id='container'>
         <div id='header'>
@@ -126,7 +126,7 @@
         </div>
         <div id='modalBackDrop'></div>
     </div>
-    <a href='https://github.com/notusknot/opuntia' target='_blank'>
+    <a href='https://github.com/notusknot/opuntia' rel='noopener' target='_blank'>
         <i class='fab fa-github'>
             <div class='link'>Contribute on GitHub</div>
         </i>

@@ -1,7 +1,16 @@
 const removeButton = document.querySelector('.removeButton');
+const addButton = document.querySelector('.addButton')
+const closeModalButton = document.querySelector('.closeModalButton')
 const addElementModalBD = document.querySelector('.addElementModalBD');
-addElementModalBD.remove();
 
+addElementModalBD.style.display = 'none';
+addButton.addEventListener('click', () => {
+    addElementModalBD.style.display = 'inherit';
+});
+closeModalButton.addEventListener('click', () => {
+    addElementModalBD.style.display = 'none';
+});
+addElementModalBD.style.display = 'none';
 //THEME SWAP
 const flatCheckbox = document.querySelector('#checkbox');
 const darkCheckbox = document.querySelector('#checkbox2');
@@ -242,7 +251,7 @@ function removeLocalTodos(todo) {
 const searchbox = document.querySelector('.searchBox');
 const api = {
     key: '09af3877d3b2ade5f8cbcb4c2f01902b',
-    base: 'http://api.openweathermap.org/data/2.5/',
+    base: 'https://api.openweathermap.org/data/2.5/',
 };
 searchbox.addEventListener('keypress', setQuery);
 function setQuery(event) {
