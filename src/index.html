@@ -13,20 +13,33 @@
 </head>
 
 <body>
+    <div class='addElement'>
+        <button class='addButton'><i class='fas fa-plus'></i></button>
+    </div>
+    <div class='addElementModalBD'>
+        <div class='addElementModal'>
+            <h1>What module would you like to add?</h1>
+            Todo list<input class='addElementSelect' id='addElementTodo' type='checkbox'><img src='/images/screenshot.png' alt='placeholder' class='todoImage'>
+            Weather<input class='addElementSelect' id='addElementWeather' type='checkbox'><img src='/images/screenshot.png' alt='placeholder' class='weatherImage'>
+            Calendar<input class='addElementSelect' id='addElementCalendar' type='checkbox'><img src='/images/screenshot.png' alt='placeholder' class='calendarImage'>
+        </div>
+    </div>
+
     <div class='dropDown'>
         <button class='dropButton'><i class='fas fa-bars' aria-label='Enter settings menu'></i></button>
             <div class='dropDownContent'>
-                <div class='settingName' id='flatName'>Shadows</div>
+                <div class='settingName' id='flatName'>No Shadows</div>
                 <input type='checkbox' id='checkbox'><label for='checkbox' class='label' id='flat'>
                     <div class='ball'></div> 
                 </label>
-                <div class='settingName' id='cornerName'>Corners</div>
-                <input type='checkbox' id='checkbox3'><label for='checkbox3' class='label' id='corner'>
-                    <div class='ball'></div> 
-                </label>
-                <div class='settingName' id='darkName'>Background</div>
+                
+                <div class='settingName' id='darkName'>Dark Mode</div>
                 <input type='checkbox' id='checkbox2'><label for='checkbox2' class='label' id='dark'>
                     <div class='ball'></div>
+                </label>
+                <div class='settingName' id='cornerName'>Sharp Corners</div>
+                <input type='checkbox' id='checkbox3'><label for='checkbox3' class='label' id='corner'>
+                    <div class='ball'></div> 
                 </label>
             </div>
      </div>
@@ -66,17 +79,19 @@
         </main>
     </div>
 
-    <div class="appWrap" id="calendarWrap">
-        <header class="wrapHeader" id="calendarWrapHeader"></header>
-        <div id="container">
-        <div id="header">
-            <div id="monthDisplay"></div>
+    <div class='appWrap' id='calendarWrap'>
+        <header class='wrapHeader' id='calendarWrapHeader'>
+            <button class='removeButton'>X</button>
+        </header>
+        <div id='container'>
+        <div id='header'>
+            <div id='monthDisplay'></div>
             <div>
-            <button id="backButton">Back</button>
-            <button id="nextButton">Next</button>
+            <button id='backButton'>Back</button>
+            <button id='nextButton'>Next</button>
             </div>
         </div>
-        <div id="weekdays">
+        <div id='weekdays'>
             <div>Sunday</div>
             <div>Monday</div>
             <div>Tuesday</div>
@@ -85,21 +100,21 @@
             <div>Friday</div>
             <div>Saturday</div>
         </div>
-        <div id="calendar"></div>
+        <div id='calendar'></div>
         </div>
-        <div id="newEventModal">
+        <div id='newEventModal'>
         <h2>New Event</h2>
-        <input id="eventTitleInput" placeholder="Event Title" />
-        <button id="saveButton">Save</button>
-        <button id="cancelButton">Cancel</button>
+        <input id='eventTitleInput' placeholder='Event Title' />
+        <button id='saveButton'>Save</button>
+        <button id='cancelButton'>Cancel</button>
         </div>
-        <div id="deleteEventModal">
+        <div id='deleteEventModal'>
         <h2>Event</h2>
-        <p id="eventText"></p>
-        <button id="deleteButton">Delete</button>
-        <button id="closeButton">Close</button>
+        <p id='eventText'></p>
+        <button id='deleteButton'>Delete</button>
+        <button id='closeButton'>Close</button>
         </div>
-        <div id="modalBackDrop"></div>
+        <div id='modalBackDrop'></div>
     </div>
     <a href='https://github.com/notusknot/opuntia' target='_blank'>
         <i class='fab fa-github'>

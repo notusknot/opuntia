@@ -27,7 +27,7 @@ input {
     padding: 0.3rem 1rem;
     font-size: 1.5rem;
     transition: 0.2s;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     background-color: #ffffff4d;
     color: #303030;
     box-shadow: 0 0px 25px -4px #1e1e3c40;
@@ -39,7 +39,7 @@ button,
     align-items: center;
     justify-content: center;
     width: 3rem;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     transition: 0.2s;
     background-color: #ffffff00;
     color: hsla(0, 0%, 100%, 0.602);
@@ -65,7 +65,7 @@ button:hover,
     padding-top: 5rem;
     resize: both;
     overflow: auto;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     background-color: #ffffff4d;
     box-shadow: 0px 0px 40px -6px #00000033;
     backdrop-filter: blur(12px);
@@ -79,6 +79,17 @@ button:hover,
     background-color: #ffffff26;
     cursor: move;
     z-index: 3;
+}
+
+.removeButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #ffffff4d;
+    color: #000;
 }
 
 #calendarWrap {
@@ -116,7 +127,7 @@ button:hover,
     height: 3rem;
     margin: 0.5rem;
     font-size: 1.5rem;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     transition: 0.2s;
     background-color: #ffffff4d;
     box-shadow: 0 0px 25px -4px #1e1e3c2a;
@@ -177,7 +188,7 @@ select {
     height: 3rem;
     padding: 0.3rem 1rem;
     transition: 0.2s;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     background-color: #ffffff4d;
     box-shadow: 0 0px 25px -4px #1e1e3c40;
     cursor: pointer;
@@ -298,8 +309,8 @@ select {
     width: 45%;
     height: 27%;
     padding: 25px;
-    border-radius: 2rem;
-    background-color: #ffffff;
+    border-radius: 1.5rem;
+    background-color: #e0e0e0;
     box-shadow: 0 0px 25px -4px #1e1e3c40;
     z-index: 10;
 }
@@ -309,6 +320,9 @@ select {
     top: 35%;
     border: 2px solid black;
     box-shadow: none;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: inset 7px 7px 13px #bebebe, inset -7px -7px 13px #ffffff;
 }
 
 #eventTitleInput.error {
@@ -359,7 +373,7 @@ select {
 }
 
 body.flat * {
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 body.dark {
@@ -367,7 +381,101 @@ body.dark {
 }
 
 body.corner * {
-    border-radius: 0;
+    border-radius: 0 !important;
+}
+
+.addElement {
+    position: absolute;
+    top: 5rem;
+    right: 1rem;
+    z-index: 2;
+}
+
+.addButton {
+    height: 3rem;
+    width: 3rem;
+    backdrop-filter: blur(12px);
+    font-size: 2rem;
+    color: #ffffff80;
+    background-color: #ffffff4d;
+}
+
+.addElementModal {
+    width: 40%;
+    height: 40%;
+    z-index: 4;
+    border-radius: 1.5rem;
+    background-color: #ffffff4d;
+    box-shadow: 0px 0px 40px -6px #00000033;
+    padding: 1rem;
+    display: grid;
+    grid-template-areas:
+        'header header header'
+        'addElementTodo addElementWeather addElementCalendar'
+        'todoImage weatherImage calendarImage';
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.addElementModalBD {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0000005a;
+    z-index: 3;
+    backdrop-filter: blur(16px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    grid-area: header;
+}
+
+.addElementSelect {
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    border: none;
+    grid-area: check;
+}
+
+img {
+    width: 100%;
+}
+
+.todoImage {
+    grid-area: todoImage;
+}
+
+.weatherImage {
+    grid-area: weatherImage;
+}
+
+.calendarImage {
+    grid-area: calendarImage;
+}
+
+#addElementTodo {
+    grid-area: addElementTodo;
+}
+
+#addElementWeather {
+    grid-area: addElementWeather;
+}
+
+#addElementCalendar {
+    grid-area: addElementCalendar;
+}
+
+.show {
+    display: block;
 }
 
 .dropButton {
@@ -394,7 +502,7 @@ body.corner * {
     position: absolute;
     top: 3rem;
     right: -27rem;
-    width: 16rem;
+    width: 18rem;
     height: 10rem;
     opacity: 0;
     transition: 0.8s;

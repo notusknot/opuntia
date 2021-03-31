@@ -1,16 +1,87 @@
+const removeButton = document.querySelector('.removeButton');
+const addElementModalBD = document.querySelector('.addElementModalBD');
+addElementModalBD.remove();
+
 //THEME SWAP
-const checkbox = document.getElementById('checkbox');
-checkbox.addEventListener('change', () => {
-    document.body.classList.toggle('flat');
-});
-const checkbox2 = document.getElementById('checkbox2');
-checkbox2.addEventListener('change', () => {
-    document.body.classList.toggle('dark');
-});
-const checkbox3 = document.getElementById('checkbox3');
-checkbox3.addEventListener('change', () => {
-    document.body.classList.toggle('corner');
-});
+const flatCheckbox = document.querySelector('#checkbox');
+const darkCheckbox = document.querySelector('#checkbox2');
+const cornerCheckbox = document.querySelector('#checkbox3');
+const flatTheme = localStorage.getItem('flat');
+const darkTheme = localStorage.getItem('dark');
+const cornerTheme = localStorage.getItem('corner');
+
+
+if (flatTheme) {
+    document.documentElement.setAttribute('data-theme', flatTheme);
+    if (flatTheme === 'enabled') {
+        flatCheckbox.checked = true;
+        document.body.classList.add('flat');
+    }if (flatTheme === 'disabled') {
+        flatCheckbox.checked = false;
+        document.body.classList.remove('flat');
+    }
+}
+function switchThemeFlat(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('flat-theme', 'enabled');
+        localStorage.setItem('flat', 'enabled');
+        document.body.classList.add('flat');
+    } else {
+        document.documentElement.setAttribute('flat-theme', 'disabled');
+        localStorage.setItem('flat', 'disabled');
+        document.body.classList.remove('flat');
+    }
+}
+flatCheckbox.addEventListener('change', switchThemeFlat, false);
+
+if (darkTheme) {
+    document.documentElement.setAttribute('data-theme', darkTheme);
+    if (darkTheme === 'enabled') {
+        darkCheckbox.checked = true;
+        document.body.classList.add('dark');
+    }
+    if (darkTheme === 'disabled') {
+        darkCheckbox.checked = false;
+        document.body.classList.remove('dark');
+    }
+}
+function switchThemeDark(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('dark-theme', 'enabled');
+        localStorage.setItem('dark', 'enabled');
+        document.body.classList.add('dark');
+    } else {
+        document.documentElement.setAttribute('dark-theme', 'disabled');
+        localStorage.setItem('dark', 'disabled');
+        document.body.classList.remove('dark');
+    }
+}
+darkCheckbox.addEventListener('change', switchThemeDark, false);
+
+if (cornerTheme) {
+    document.documentElement.setAttribute('data-theme', cornerTheme);
+    if (cornerTheme === 'enabled') {
+        cornerCheckbox.checked = true;
+        document.body.classList.add('corner');
+    }
+    if (cornerTheme === 'disabled') {
+        cornerCheckbox.checked = false;
+        document.body.classList.remove('corner');
+    }
+}
+function switchThemeCorner(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('corner-theme', 'enabled');
+        localStorage.setItem('corner', 'enabled');
+        document.body.classList.toggle('corner');
+    } else {
+        document.documentElement.setAttribute('corner-theme', 'disabled');
+        localStorage.setItem('corner', 'disabled');
+        document.body.classList.toggle('corner');
+    }
+}
+cornerCheckbox.addEventListener('change', switchThemeCorner, false);
+
 //DRAGGING
 dragElement(document.getElementById('todoWrap'));
 dragElement(document.getElementById('weatherWrap'));
@@ -342,3 +413,8 @@ function initButtons() {
 
 initButtons();
 load();
+const calendarWrap = document.querySelector('#calendarWrap');
+
+removeButton.addEventListener('click', () => {
+    calendarWrap.style.display = 'none';
+});
