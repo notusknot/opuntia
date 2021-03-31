@@ -401,22 +401,16 @@ body.corner * {
 }
 
 .addElementModal {
-    width: 40%;
-    height: 40%;
+    width: 35%;
+    height: 70%;
     z-index: 4;
     border-radius: 1.5rem;
     background-color: #ffffff4d;
     box-shadow: 0px 0px 40px -6px #00000033;
     padding: 1rem;
-    display: grid;
-    grid-template-areas:
-        'header header header header'
-        'addElementTodo addElementWeather addElementCalendar header'
-        'todoImage weatherImage calendarImage header';
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr 2fr;
     align-items: center;
-    gap: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .addElementModalBD {
@@ -446,32 +440,25 @@ h1 {
     grid-area: check;
 }
 
+.addElementHeader{
+    position: absolute;
+    top:0;
+    left:0;
+}
+.addElementDiv{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:2rem;
+    max-height: 33%;
+    width:100%;
+}
+
 img {
-    width: 100%;
-}
-
-.todoImage {
-    grid-area: todoImage;
-}
-
-.weatherImage {
-    grid-area: weatherImage;
-}
-
-.calendarImage {
-    grid-area: calendarImage;
-}
-
-#addElementTodo {
-    grid-area: addElementTodo;
-}
-
-#addElementWeather {
-    grid-area: addElementWeather;
-}
-
-#addElementCalendar {
-    grid-area: addElementCalendar;
+    width: 15rem;
+    border-radius: 12px;
+    box-shadow: 0 0px 25px -4px #1e1e3c40;
+    margin:.5rem;
 }
 
 .show {
