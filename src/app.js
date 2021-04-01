@@ -1,6 +1,6 @@
 const removeButton = document.querySelector('.removeButton');
-const addButton = document.querySelector('.addButton')
-const closeModalButton = document.querySelector('.closeModalButton')
+const addButton = document.querySelector('.addButton');
+const closeModalButton = document.querySelector('.closeModalButton');
 const addElementModalBD = document.querySelector('.addElementModalBD');
 
 addElementModalBD.style.display = 'none';
@@ -90,6 +90,68 @@ function switchThemeCorner(e) {
     }
 }
 cornerCheckbox.addEventListener('change', switchThemeCorner, false);
+
+//RESIZE
+document.addEventListener('DOMContentLoaded', function () {
+    const ele = document.querySelector('#weatherWrap');
+    let x = 0;
+    let y = 0;
+    let w = 0;
+    let h = 0;
+    const mouseDownHandler = function (e) {
+        x = e.clientX;
+        y = e.clientY;
+        const styles = window.getComputedStyle(ele);
+        w = parseInt(styles.width, 10);
+        h = parseInt(styles.height, 10);
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
+    };
+    const mouseMoveHandler = function (e) {
+        const dx = e.clientX - x;
+        const dy = e.clientY - y;
+        ele.style.width = `${w + dx}px`;
+        ele.style.height = `${h + dy}px`;
+    };
+    const mouseUpHandler = function () {
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+    };
+    const resizers = ele.querySelectorAll('.resizer');
+    [].forEach.call(resizers, function (resizer) {
+        resizer.addEventListener('mousedown', mouseDownHandler);
+    });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const ele = document.querySelector('#todoWrap');
+    let x = 0;
+    let y = 0;
+    let w = 0;
+    let h = 0;
+    const mouseDownHandler = function (e) {
+        x = e.clientX;
+        y = e.clientY;
+        const styles = window.getComputedStyle(ele);
+        w = parseInt(styles.width, 10);
+        h = parseInt(styles.height, 10);
+        document.addEventListener('mousemove', mouseMoveHandler);
+        document.addEventListener('mouseup', mouseUpHandler);
+    };
+    const mouseMoveHandler = function (e) {
+        const dx = e.clientX - x;
+        const dy = e.clientY - y;
+        ele.style.width = `${w + dx}px`;
+        ele.style.height = `${h + dy}px`;
+    };
+    const mouseUpHandler = function () {
+        document.removeEventListener('mousemove', mouseMoveHandler);
+        document.removeEventListener('mouseup', mouseUpHandler);
+    };
+    const resizers = ele.querySelectorAll('.resizer');
+    [].forEach.call(resizers, function (resizer) {
+        resizer.addEventListener('mousedown', mouseDownHandler);
+    });
+});
 
 //DRAGGING
 
@@ -338,7 +400,7 @@ function load() {
     });
     const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);
 
-    document.getElementById('monthDisplay').innerText = `${dt.toLocaleDateString('en-us', { month: 'long' })} ${year}`;
+    document.getElementById('monthDisplay').innerText = `${dt.toLocaleDateString('en-us', {month: 'long'})} ${year}`;
 
     calendar.innerHTML = '';
 

@@ -1,136 +1,136 @@
 <!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='description' content='Simple productivity website'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href='./style.css'>
-    <link rel='preconnect' href='https://fonts.gstatic.com'>
-    <link defer href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet'>
-    <link defer rel='stylesheet'  href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' integrity='sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==' crossorigin='anonymous'/>
-    <title>Opuntia</title>
-</head>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Simple productivity website" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="./style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link defer href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+        <link defer rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+        <title>Opuntia</title>
+    </head>
 
-<body>
-    <div class='addElement'>
-        <button class='addButton' aria-label='Add element'><i class='fas fa-plus'></i></button>
-    </div>
-    <div class='addElementModalBD'>
-        
-        <div class='addElementModal'>
-            <button class='closeModalButton'><i class="fas fa-times-circle"></i></button>
-            <div class='addElementDiv'>
-                <input class='addElementSelect' id='addElementTodo' type='checkbox'>Todo list<img src='/images/todo.webp' alt='placeholder' class='todoImage'>
-            </div>
-            <div class="addElementDiv">
-                <input class='addElementSelect' id='addElementWeather' type='checkbox'>Weather<img src='/images/todo.png' alt='placeholder' class='weatherImage'>
-            </div>
-            <div class="addElementDiv">
-                <input class='addElementSelect' id='addElementCalendar' type='checkbox'>Calendar<img src='/images/todo.png' alt='placeholder' class='calendarImage'>
+    <body>
+        <div class="addElement">
+            <button class="addButton" aria-label="Add element"><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="addElementModalBD">
+            <div class="addElementModal">
+                <button class="closeModalButton"><i class="fas fa-times-circle"></i></button>
+                <div class="addElementDiv"><input class="addElementSelect" id="addElementTodo" type="checkbox" />Todo list<img src="/images/todo.webp" alt="placeholder" class="todoImage" /></div>
+                <div class="addElementDiv"><input class="addElementSelect" id="addElementWeather" type="checkbox" />Weather<img src="/images/todo.webp" alt="placeholder" class="weatherImage" /></div>
+                <div class="addElementDiv"><input class="addElementSelect" id="addElementCalendar" type="checkbox" />Calendar<img src="/images/todo.webp" alt="placeholder" class="calendarImage" /></div>
             </div>
         </div>
-    </div>
 
-    <div class='dropDown'>
-        <button class='dropButton'><i class='fas fa-bars' aria-label='Enter settings menu'></i></button>
-            <div class='dropDownContent'>
-                <div class='settingName' id='flatName'>No Shadows</div>
-                <input type='checkbox' id='checkbox'><label for='checkbox' class='label' id='flat'>
-                    <div class='ball'></div> 
+        <div class="dropDown">
+            <button class="dropButton"><i class="fas fa-bars" aria-label="Enter settings menu"></i></button>
+            <div class="dropDownContent">
+                <div class="settingName" id="flatName">No Shadows</div>
+                <input type="checkbox" id="checkbox" /><label for="checkbox" class="label" id="flat">
+                    <div class="ball"></div>
                 </label>
-                
-                <div class='settingName' id='darkName'>Dark Mode</div>
-                <input type='checkbox' id='checkbox2'><label for='checkbox2' class='label' id='dark'>
-                    <div class='ball'></div>
+                <div class="settingName" id="darkName">Dark Mode</div>
+                <input type="checkbox" id="checkbox2" /><label for="checkbox2" class="label" id="dark">
+                    <div class="ball"></div>
                 </label>
-                <div class='settingName' id='cornerName'>Sharp Corners</div>
-                <input type='checkbox' id='checkbox3'><label for='checkbox3' class='label' id='corner'>
-                    <div class='ball'></div> 
+                <div class="settingName" id="cornerName">Sharp Corners</div>
+                <input type="checkbox" id="checkbox3" /><label for="checkbox3" class="label" id="corner">
+                    <div class="ball"></div>
                 </label>
             </div>
-     </div>
-
-    <div class='appWrap' id='todoWrap'>
-        <header class='wrapHeader' id='todoWrapHeader'>
-            <button class='removeButton' aria-label='Remove widget'><i class="fas fa-times-circle"></i></button>
-        </header>
-        <form>
-            <input type='text' class='todoInput' placeholder='Add task...' aria-label='Add your task.'>
-            <button class='todoButton' type='submit' aria-label='Add item to list'>
-                <i class='fas fa-plus-circle'></i>
-            </button>
-            <div class='select'>
-                <i class='fas fa-chevron-circle-down button'></i>
-                <select name='todos' class='filterTodo'>
-                    <option value='all'>All</option>
-                    <option value='completed'>Done</option>
-                    <option value='incomplete'>Not done</option>
-                </select>
-            </div>
-        </form>
-        <div class='todoContainer'>
-            <ul class='todoList'></ul>
         </div>
-    </div>
 
-    <div class='appWrap' id='weatherWrap'>
-        <header class='wrapHeader' id='weatherWrapHeader'>
-            <button class='removeButton' aria-label='Remove widget'><i class="fas fa-times-circle"></i></button>
-        </header>
-        <header>
-            <input type='text' class='searchBox' placeholder='Search for a city...' onfocus=this.value='' aria-label='Search for a city'>
-        </header>
-        <main>
-            <div class='temp'><span></span></div>
-            <div class='weather'></div>
-            <div class='highLow'></div>
-            <div class='city'>Search for a city!</div>
-            <div class='date'></div>
-        </main>
-    </div>
-
-    <div class='appWrap' id='calendarWrap'>
-        <header class='wrapHeader' id='calendarWrapHeader'>
-            <button class='removeButton' aria-label='Remove widget'><i class="fas fa-times-circle"></i></button>
-        </header>
-        <div id='container'>
-        <div id='header'>
-            <div id='monthDisplay'></div>
-            <div>
-            <button id='backButton'>Back</button>
-            <button id='nextButton'>Next</button>
+        <div class="appWrap" id="todoWrap">
+            <div class="resizer r"></div>
+            <div class="resizer b"></div>
+            <header class="wrapHeader" id="todoWrapHeader">
+                <button class="removeButton" aria-label="Remove widget"><i class="fas fa-times-circle"></i></button>
+            </header>
+            <form>
+                <input type="text" class="todoInput" placeholder="Add task..." aria-label="Add your task." />
+                <button class="todoButton" type="submit" aria-label="Add item to list">
+                    <i class="fas fa-plus-circle"></i>
+                </button>
+                <div class="select">
+                    <i class="fas fa-chevron-circle-down button"></i>
+                    <select name="todos" class="filterTodo">
+                        <option value="all">All</option>
+                        <option value="completed">Done</option>
+                        <option value="incomplete">Not done</option>
+                    </select>
+                </div>
+            </form>
+            <div class="todoContainer">
+                <ul class="todoList"></ul>
             </div>
         </div>
-        <div id='weekdays'>
-            <div>Sunday</div>
-            <div>Monday</div>
-            <div>Tuesday</div>
-            <div>Wednesday</div>
-            <div>Thursday</div>
-            <div>Friday</div>
-            <div>Saturday</div>
+
+        <div class="appWrap" id="weatherWrap">
+            <div class="resizer2 r"></div>
+            <div class="resizer2 b"></div>
+            <header class="wrapHeader" id="weatherWrapHeader">
+                <button class="removeButton" aria-label="Remove widget"><i class="fas fa-times-circle"></i></button>
+            </header>
+            <header>
+                <input type="text" class="searchBox" placeholder="Search for a city..." onfocus="this.value" ="" aria-label="Search for a city" />
+            </header>
+            <main>
+                <div class="temp"><span></span></div>
+                <div class="weather"></div>
+                <div class="highLow"></div>
+                <div class="city">Search for a city!</div>
+                <div class="date"></div>
+            </main>
         </div>
-            <div id='calendar'></div>
+
+        <div class="appWrap" id="calendarWrap">
+            <div class="resize">
+                <div class="r"></div>
+                <div class="b"></div>
+            </div>
+            <header class="wrapHeader" id="calendarWrapHeader">
+                <button class="removeButton" aria-label="Remove widget"><i class="fas fa-times-circle"></i></button>
+            </header>
+            <div id="container">
+                <div id="header">
+                    <div id="monthDisplay"></div>
+                    <div>
+                        <button id="backButton">Back</button>
+                        <button id="nextButton">Next</button>
+                    </div>
+                </div>
+                <div id="weekdays">
+                    <div>Sunday</div>
+                    <div>Monday</div>
+                    <div>Tuesday</div>
+                    <div>Wednesday</div>
+                    <div>Thursday</div>
+                    <div>Friday</div>
+                    <div>Saturday</div>
+                </div>
+                <div id="calendar"></div>
+            </div>
+            <div id="newEventModal">
+                <h2>New Event</h2>
+                <input id="eventTitleInput" placeholder="Event Title" />
+                <button id="saveButton">Save</button>
+                <button id="cancelButton">Cancel</button>
+            </div>
+            <div id="deleteEventModal">
+                <h2>Event</h2>
+                <p id="eventText"></p>
+                <button id="deleteButton">Delete</button>
+                <button id="closeButton">Close</button>
+            </div>
+            <div id="modalBackDrop"></div>
         </div>
-        <div id='newEventModal'>
-            <h2>New Event</h2>
-            <input id='eventTitleInput' placeholder='Event Title' />
-            <button id='saveButton'>Save</button>
-            <button id='cancelButton'>Cancel</button>
-        </div>
-        <div id='deleteEventModal'>
-            <h2>Event</h2>
-            <p id='eventText'></p>
-            <button id='deleteButton'>Delete</button>
-            <button id='closeButton'>Close</button>
-        </div>
-        <div id='modalBackDrop'></div>
-    </div>
-    <a href='https://github.com/notusknot/opuntia' rel='noopener' target='_blank'>
-        <i class='fab fa-github'>
-            <div class='link'>Contribute on GitHub</div>
-        </i>
-    </a>
-    <script src='app.js' defer></script>
-</body>
+        <a href="https://github.com/notusknot/opuntia" rel="noopener" target="_blank">
+            <i class="fab fa-github">
+                <div class="link">Contribute on GitHub</div>
+            </i>
+        </a>
+        <script src="app.js" defer></script>
+    </body>
 </html>

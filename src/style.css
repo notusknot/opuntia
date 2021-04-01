@@ -6,17 +6,29 @@
     user-select: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
+    transition: box-shadow 0.4s, opacity 0.4s, backdrop-filter 0.4s, border-radius 0.4s;
 }
 
 body {
     display: flex;
+    align-items: center;
     justify-content: center;
     min-height: 100vh;
     background: linear-gradient(-135deg, #fc466b, #3f5efb);
-    color: #303030;
-    transition: box-shadow 0.4s, opacity 0.4s, backdrop-filter 0.4s, border-radius 0.4s;
     overflow: hidden;
+}
+
+.button,
+button,
+input {
+    border-radius: 1.5rem;
+    transition: 0.2s;
+    box-shadow: 0 0 25px -4px #1e1e3c40;
+}
+
+body,
+input {
+    color: #303030;
 }
 
 input {
@@ -27,49 +39,47 @@ input {
     height: 3rem;
     padding: 0.3rem 1rem;
     font-size: 1.5rem;
-    transition: 0.2s;
-    border-radius: 1.5rem;
     background-color: #ffffff4d;
-    color: #303030;
-    box-shadow: 0 0px 25px -4px #1e1e3c40;
 }
 
-button,
-.button {
+.button,
+button {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 3rem;
-    border-radius: 1.5rem;
-    transition: 0.2s;
     background-color: #ffffff00;
-    color: hsla(0, 0%, 100%, 0.602);
-    box-shadow: 0 0px 25px -4px #1e1e3c40;
+    color: rgba(255, 255, 255, 0.602);
     cursor: pointer;
 }
 
-input:focus,
 input:active,
+input:focus,
 select:active {
     background-color: #ffffff80;
 }
 
-button:hover,
-.button:hover {
-    color: #ffffff;
+.button:hover,
+button:hover {
+    color: #fff;
 }
 
 .appWrap {
     position: absolute;
-    min-width: 23rem;
-    min-height: 23rem;
     padding-top: 6rem;
-    resize: both;
+    min-width: 1%;
+    width: 23rem;
+    height: 23rem;
     overflow: auto;
+    resize: both;
     border-radius: 1.5rem;
     background-color: #ffffff4d;
-    box-shadow: 0px 0px 40px -6px #00000033;
+    box-shadow: 0 0 40px -6px #00000033;
     backdrop-filter: blur(12px);
+}
+
+#calendarWrap {
+    height: auto;
 }
 
 .wrapHeader {
@@ -82,11 +92,34 @@ button:hover,
     z-index: 3;
 }
 
+.resizer,
+.resizer2 {
+    position: absolute;
+}
+
+.resizer.r,
+.resizer2.r {
+    cursor: col-resize;
+    height: 100%;
+    right: 0;
+    top: 0;
+    width: 10px;
+}
+
+.resizer.b,
+.resizer2.b {
+    bottom: 0;
+    cursor: row-resize;
+    height: 10px;
+    left: 0;
+    width: 100%;
+}
+
 .removeButton {
     position: absolute;
     top: 0;
     left: 0;
-    margin:.5rem;
+    margin: 0.5rem;
     width: 1.5rem;
     height: 1.5rem;
     font-size: 1.5rem;
@@ -130,7 +163,7 @@ button:hover,
     border-radius: 1.5rem;
     transition: 0.2s;
     background-color: #ffffff4d;
-    box-shadow: 0 0px 25px -4px #1e1e3c2a;
+    box-shadow: 0 0 25px -4px #1e1e3c2a;
     transform: translateY(1rem);
 }
 
@@ -139,14 +172,24 @@ button:hover,
     padding: 0.4rem 1rem;
 }
 
+.completeButton {
+    font-size: 1rem;
+    color: #303030;
+    box-shadow: -25px 0 25px -13px rgba(30, 30, 60, 0.15);
+}
+
 .completeButton,
-.trashButton {
+.trashButton,
+select {
     height: 3rem;
+    background-color: #ffffff4d;
+}
+
+.trashButton {
     padding: 0 0.9rem;
     font-size: 1rem;
-    background-color: #ffffff4d;
     color: #303030;
-    box-shadow: -25px 0px 25px -13px rgba(30, 30, 60, 0.15);
+    box-shadow: -25px 0 25px -13px rgba(30, 30, 60, 0.15);
 }
 
 .fa-check,
@@ -185,12 +228,10 @@ select {
     appearance: none;
     font-size: 1.5rem;
     width: 100%;
-    height: 3rem;
     padding: 0.3rem 1rem;
     transition: 0.2s;
     border-radius: 1.5rem;
-    background-color: #ffffff4d;
-    box-shadow: 0 0px 25px -4px #1e1e3c40;
+    box-shadow: 0 0 25px -4px #1e1e3c40;
     cursor: pointer;
 }
 
@@ -207,11 +248,12 @@ select {
     font-size: 3rem;
 }
 
-.temp,
-.weather,
-.highLow,
+#weekdays div,
 .city,
-.date {
+.date,
+.highLow,
+.temp,
+.weather {
     display: flex;
     justify-content: center;
 }
@@ -240,7 +282,7 @@ select {
 
 #backButton:hover,
 #nextButton:hover {
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 #nextButton {
@@ -251,18 +293,16 @@ select {
     right: 6rem;
 }
 
+#calendar,
 #weekdays {
     display: flex;
 }
 
 #weekdays div {
-    display: flex;
-    justify-content: center;
     width: 7.5rem;
 }
 
 #calendar {
-    display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -275,14 +315,14 @@ select {
     border-radius: 1rem;
     transition: 0.2s;
     background-color: #ffffff4d;
-    box-shadow: 0px 0px 27px -8px #1e1e3c4d;
+    box-shadow: 0 0 27px -8px #1e1e3c4d;
     cursor: pointer;
 }
 
-.day:hover,
-.day + #currentDay {
+.day + #currentDay,
+.day:hover {
     background-color: #ffffff80;
-    box-shadow: 0px 0px 31px 1px #1e1e3c40;
+    box-shadow: 0 0 31px 1px #1e1e3c40;
 }
 
 .event {
@@ -291,7 +331,7 @@ select {
     padding: 3px;
     border-radius: 0.4rem;
     background-color: #58bae4;
-    color: white;
+    color: #fff;
     overflow: hidden;
 }
 
@@ -300,8 +340,8 @@ select {
     opacity: 0;
 }
 
-#newEventModal,
-#deleteEventModal {
+#deleteEventModal,
+#newEventModal {
     display: none;
     position: absolute;
     top: 100px;
@@ -311,18 +351,17 @@ select {
     padding: 25px;
     border-radius: 1.5rem;
     background-color: #e0e0e0;
-    box-shadow: 0 0px 25px -4px #1e1e3c40;
+    box-shadow: 0 0 25px -4px #1e1e3c40;
     z-index: 10;
 }
 
 #eventTitleInput {
     position: absolute;
     top: 35%;
-    border: 2px solid black;
-    box-shadow: none;
+    border: 2px solid #000;
     border-radius: 50px;
     background: #e0e0e0;
-    box-shadow: inset 7px 7px 13px #bebebe, inset -7px -7px 13px #ffffff;
+    box-shadow: inset 7px 7px 13px #bebebe, inset -7px -7px 13px #fff;
 }
 
 #eventTitleInput.error {
@@ -341,8 +380,14 @@ select {
     background-color: #0000004d;
 }
 
+#closeButton,
 #saveButton,
-#closeButton {
+img {
+    box-shadow: 0 0 25px -4px #1e1e3c40;
+}
+
+#closeButton,
+#saveButton {
     position: absolute;
     left: 1rem;
     bottom: 1rem;
@@ -351,10 +396,10 @@ select {
     padding: 0;
     font-size: 1.5rem;
     background-color: #0c949c;
-    box-shadow: 0 0px 25px -4px #1e1e3c40;
 }
-#saveButton:hover,
-#closeButton:hover {
+
+#closeButton:hover,
+#saveButton:hover {
     background-color: #0c949c;
 }
 
@@ -406,7 +451,7 @@ body.corner * {
     z-index: 4;
     border-radius: 1.5rem;
     background-color: #ffffff4d;
-    box-shadow: 0px 0px 40px -6px #00000033;
+    box-shadow: 0 0 40px -6px #00000033;
     padding: 1rem;
     align-items: center;
     display: flex;
@@ -436,31 +481,30 @@ h1 {
     position: relative;
     top: 0;
     left: 0;
-    border: none;
+    border: 0;
     grid-area: check;
 }
 
-.addElementDiv{
-    display:flex;
+.addElementDiv {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size:2rem;
+    font-size: 2rem;
     max-height: 33%;
-    width:100%;
+    width: 100%;
 }
 
-.closeModalButton{
-    font-size:2rem;
-    position:absolute;
-    top:calc(15% + 1lhlrem);
-    width:2rem;
+.closeModalButton {
+    font-size: 2rem;
+    position: absolute;
+    top: calc(15% + 1lhlrem);
+    width: 2rem;
 }
 
 img {
     width: 15rem;
     border-radius: 12px;
-    box-shadow: 0 0px 25px -4px #1e1e3c40;
-    margin:.5rem;
+    margin: 0.5rem;
 }
 
 .dropButton {
@@ -483,8 +527,13 @@ img {
     z-index: 2;
 }
 
-.dropDownContent {
+.dropDownContent,
+.label {
     position: absolute;
+    background-color: #ffffff4d;
+}
+
+.dropDownContent {
     top: 3rem;
     right: -27rem;
     width: 18rem;
@@ -492,7 +541,6 @@ img {
     opacity: 0;
     transition: 0.8s;
     border-radius: 1rem 0 1rem 1rem;
-    background-color: #ffffff4d;
     backdrop-filter: blur(12px);
 }
 
@@ -508,30 +556,29 @@ img {
 }
 
 .label {
-    position: absolute;
     top: 1rem;
     right: 1rem;
     height: 2rem;
     width: 4rem;
     border-radius: 1rem;
-    background-color: #ffffff4d;
-    box-shadow: 0 0px 25px -4px #1e1e3c2a;
+    box-shadow: 0 0 25px -4px #1e1e3c2a;
     cursor: pointer;
 }
 
-#dark {
+#dark,
+#darkName {
     top: 4rem;
 }
 
-#checkbox:checked + .label .ball,
 #checkbox2:checked + .label .ball,
-#checkbox3:checked + .label .ball {
+#checkbox3:checked + .label .ball,
+#checkbox:checked + .label .ball {
     transform: translateX(1.9rem);
 }
 
-#checkbox:checked + .label,
 #checkbox2:checked + .label,
-#checkbox3:checked + .label {
+#checkbox3:checked + .label,
+#checkbox:checked + .label {
     background-color: #ffffffa6;
 }
 
@@ -553,16 +600,13 @@ img {
     font-size: 1.5rem;
 }
 
-#darkName {
-    top: 4rem;
-}
 #corner,
 #cornerName {
     top: 7rem;
 }
 
-a,
-.link {
+.link,
+a {
     position: absolute;
     top: 0;
     left: 0.5rem;
@@ -572,6 +616,11 @@ a,
     color: #fff;
 }
 
+.link {
+    left: -25rem;
+    top: 0.5rem;
+}
+
 a:hover {
     opacity: 1;
 }
@@ -579,11 +628,6 @@ a:hover {
 a:hover .link {
     transform: translateX(27.5rem);
     opacity: 1;
-}
-
-.link {
-    left: -25rem;
-    top: 0.5rem;
 }
 
 aria-label {
