@@ -1,4 +1,3 @@
-const removeButton = document.querySelector('.removeButton');
 const addButton = document.querySelector('.addButton');
 const closeModalButton = document.querySelector('.closeModalButton');
 const addElementModalBD = document.querySelector('.addElementModalBD');
@@ -91,67 +90,6 @@ function switchThemeCorner(e) {
 }
 cornerCheckbox.addEventListener('change', switchThemeCorner, false);
 
-//RESIZE
-document.addEventListener('DOMContentLoaded', function () {
-    const ele = document.querySelector('#weatherWrap');
-    let x = 0;
-    let y = 0;
-    let w = 0;
-    let h = 0;
-    const mouseDownHandler = function (e) {
-        x = e.clientX;
-        y = e.clientY;
-        const styles = window.getComputedStyle(ele);
-        w = parseInt(styles.width, 10);
-        h = parseInt(styles.height, 10);
-        document.addEventListener('mousemove', mouseMoveHandler);
-        document.addEventListener('mouseup', mouseUpHandler);
-    };
-    const mouseMoveHandler = function (e) {
-        const dx = e.clientX - x;
-        const dy = e.clientY - y;
-        ele.style.width = `${w + dx}px`;
-        ele.style.height = `${h + dy}px`;
-    };
-    const mouseUpHandler = function () {
-        document.removeEventListener('mousemove', mouseMoveHandler);
-        document.removeEventListener('mouseup', mouseUpHandler);
-    };
-    const resizers = ele.querySelectorAll('.resizer');
-    [].forEach.call(resizers, function (resizer) {
-        resizer.addEventListener('mousedown', mouseDownHandler);
-    });
-});
-document.addEventListener('DOMContentLoaded', function () {
-    const ele = document.querySelector('#todoWrap');
-    let x = 0;
-    let y = 0;
-    let w = 0;
-    let h = 0;
-    const mouseDownHandler = function (e) {
-        x = e.clientX;
-        y = e.clientY;
-        const styles = window.getComputedStyle(ele);
-        w = parseInt(styles.width, 10);
-        h = parseInt(styles.height, 10);
-        document.addEventListener('mousemove', mouseMoveHandler);
-        document.addEventListener('mouseup', mouseUpHandler);
-    };
-    const mouseMoveHandler = function (e) {
-        const dx = e.clientX - x;
-        const dy = e.clientY - y;
-        ele.style.width = `${w + dx}px`;
-        ele.style.height = `${h + dy}px`;
-    };
-    const mouseUpHandler = function () {
-        document.removeEventListener('mousemove', mouseMoveHandler);
-        document.removeEventListener('mouseup', mouseUpHandler);
-    };
-    const resizers = ele.querySelectorAll('.resizer');
-    [].forEach.call(resizers, function (resizer) {
-        resizer.addEventListener('mousedown', mouseDownHandler);
-    });
-});
 
 //DRAGGING
 
@@ -407,6 +345,7 @@ function load() {
     for (let i = 1; i <= paddingDays + daysInMonth; i++) {
         const daySquare = document.createElement('div');
         daySquare.classList.add('day');
+        daySquare.classList.add('glass');
 
         const dayString = `${month + 1}/${i - paddingDays}/${year}`;
 
@@ -485,8 +424,19 @@ function initButtons() {
 
 initButtons();
 load();
+const todoRemove = document.querySelector('#todoRemove');
+const todoWrap = document.querySelector('#todoWrap');
+todoRemove.addEventListener('click', () => {
+    todoWrap.style.display = 'none';
+});
+const weatherRemove = document.querySelector('#weatherRemove');
+const weatherWrap = document.querySelector('#weatherWrap');
+weatherRemove.addEventListener('click', () => {
+    weatherWrap.style.display = 'none';
+});
+const calendarRemove = document.querySelector('#calendarRemove');
 const calendarWrap = document.querySelector('#calendarWrap');
-
-removeButton.addEventListener('click', () => {
+calendarRemove.addEventListener('click', () => {
     calendarWrap.style.display = 'none';
 });
+
