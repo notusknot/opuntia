@@ -1,6 +1,6 @@
 * {
-    margin: none;
-    padding: none;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -9,6 +9,8 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    min-width: 100vw;
+
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(-135deg, #fc466b, #3f5efb);
     overflow: hidden;
@@ -38,7 +40,7 @@ input {
     height: 3rem;
     padding: 0.3rem 1rem;
     font-size: 1.5rem;
-    transition: .2s !important;
+    transition: background-color .2s !important;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -52,11 +54,12 @@ input {
     cursor: pointer;
 }
 
-input:active, input:focus, select:active {
+input:active, input:focus, select:active, select:focus {
     background-color: #ffffff80 !important;
+    outline:none;
 }
 
-.button:hover, button:hover {
+.button:hover, button:hover, button:focus, button:active, .button:focus,.button:active {
     color: #fff;
 }
 
@@ -85,7 +88,7 @@ input:active, input:focus, select:active {
         flex-direction: column;
         padding:1rem
     }
-    p, ul{
+    p, .instructionList{
         margin:0rem;
         padding:1rem;
         text-align: center;
@@ -93,7 +96,7 @@ input:active, input:focus, select:active {
         color:white;
         border-radius: 1.5rem;
     }
-    ul{
+    .instructionList{
         margin: 1rem 0;
     }
     code{
@@ -101,7 +104,7 @@ input:active, input:focus, select:active {
         padding:0;
         font-size:1.4rem;
     }
-    li{
+    .instruction{
         margin:1rem;
     }
     .closeFFPopup{
@@ -189,7 +192,7 @@ input:active, input:focus, select:active {
     margin: 0.5rem;
     font-size: 1.5rem;
     border-radius: 1.5rem;
-    transition: 0.2s;
+    transition: opacity 0.2s;
     background-color: #ffffff4d;
     box-shadow: 0 0 25px -4px #1e1e3c2a, 0 0 0 1px hsla(0, 0%, 100%, 0.5);
     transform: translateY(1rem);
@@ -256,7 +259,6 @@ select {
     font-size: 1.5rem;
     width: 100%;
     padding: 0.3rem 1rem;
-    transition: 0.2s;
     cursor: pointer;
 }
 
@@ -266,6 +268,11 @@ select {
     right: 5%;
     width: 25%;
 }
+
+.filterTodo{
+    transition: background-color 0.2s;
+}
+
 .fa-plus-circle::before{
     position: absolute;
     top:0px;
@@ -304,7 +311,9 @@ select {
     color: #303030;
 }
 
-#backButton:hover, #nextButton:hover {
+#backButton:hover, #nextButton:hover,
+#backButton:focus, #nextButton:focus,
+#backButton:active, #nextButton:active {
     background-color: #fff;
 }
 
@@ -335,7 +344,7 @@ select {
     padding: 0.7rem;
     margin: 0.3rem;
     border-radius: 1rem !important;
-    transition: 0.2s;
+    transition: background-color 0.2s;
     cursor: pointer;
 }
 
@@ -514,7 +523,7 @@ img {
 .dropButton {
     height: 3rem;
     font-size: 1.5rem;
-    transition: 0.5s;
+    transition: border-radius 0.5s, color .5s;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     background-color: #ffffff4d;
@@ -543,16 +552,15 @@ img {
     width: 18rem;
     height: 10rem;
     opacity: 0;
-    transition: 0.8s ease;
+    transition:.4s cubic-bezier(0.75, 0, 1, 1) 0s;
     border-radius: 1.5rem 0 1.5rem 1.5rem !important;
     border:none !important;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
 }
-
 .dropDown:hover .dropDownContent {
     opacity: 1;
-    transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: .7s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
     transform: translateX(-27rem);
 }
 
@@ -610,8 +618,9 @@ img {
     left: 0.5rem;
     opacity: 0.3;
     font-size: 2rem;
-    transition: 0.8s;
+    transition: .4s cubic-bezier(0.75, 0, 1, 1) 0s;
     color: #fff;
+    font-family: 'Poppins', sans-serif;
 }
 
 .link {
@@ -625,6 +634,7 @@ a:hover {
 
 a:hover .link {
     transform: translateX(27.5rem);
+    transition: .7s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
     opacity: 1;
 }
 
@@ -635,7 +645,3 @@ aria-label {
 ::placeholder {color: #303030;}
 ::-moz-placeholder{color: #303030;}
 ::-webkit-input-placeholder{color: #303030;}
-
-*{
-    transition: none;
-}

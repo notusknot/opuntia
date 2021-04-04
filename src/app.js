@@ -439,4 +439,9 @@ const calendarWrap = document.querySelector('#calendarWrap');
 calendarRemove.addEventListener('click', () => {
     calendarWrap.style.display = 'none';
 });
+const ffPopupRemove = document.querySelector('.closeFFPopup');
+const ffPopup = document.querySelector('.ffPopup');
+ffPopupRemove.addEventListener('click', () => {
+    ffPopup.remove();
+});
 
