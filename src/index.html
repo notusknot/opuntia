@@ -40,6 +40,23 @@
                 </label>
             </div>
         </div>
+        <div class="ffPopup">
+            <button class="closeFFPopup"><i class="far fa-times-circle"></i></button>
+            <p>Hey! Looks like you're using Firefox.
+                Opuntia may perform or function worse than other browsers.
+                It is recommended that you switch to a chromium based browser
+                or follow the instructions below:
+                <code>
+                    <ul>
+                        <li>Open a new tab and enter about:config in the url bar</li>
+                        <li>Type "layout.css.backdrop-filter.enabled" in the search bar, and double click to enable it</li>
+                        <li>Type "gfx.webrender.all" in the search bar, and double click to enable it</li>
+                    </ul>
+                </code>
+            <p>All this does is enable some fancy settings that use your GPU to increase the performance of 
+                the website and enable the background blur setting. If you do not want to mess with these settings, 
+                this is fine. Opuntia is perfectly usable without them enabled.
+        </div>
 
         <div class="appWrap glass" id="todoWrap">
             <header class="wrapHeader" id="todoWrapHeader">

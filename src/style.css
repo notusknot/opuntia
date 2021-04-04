@@ -1,15 +1,7 @@
 * {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    border: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    margin: none;
+    padding: none;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    
 }
 
 body {
@@ -17,6 +9,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(-135deg, #fc466b, #3f5efb);
     overflow: hidden;
 }
@@ -30,6 +23,7 @@ body {
 .button, button, input {
     border-radius: 1.5rem;
     transition: 0.2s;
+    border: none;
 }
 
 body, input {
@@ -45,6 +39,7 @@ input {
     padding: 0.3rem 1rem;
     font-size: 1.5rem;
     transition: .2s !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .button, button {
@@ -68,9 +63,56 @@ input:active, input:focus, select:active {
 .glass {
     border-radius: 1.5rem !important;
     background-color: #ffffff4d !important;
-    border: 1px solid #ffffff40 !important;
+    border:none !important;
     transition: box-shadow 0.3s, opacity 0.3s, backdrop-filter 0.3s, border-radius 0.3s, -webkit-backdrop-filter 0.3s;
-    box-shadow: 0px 12px 30px -6px rgba(30, 30, 60, 0.15) !important;
+    box-shadow: 0px 12px 30px -6px rgba(30, 30, 60, 0.15), 
+                0px 0px 0px 1px hsla(0, 0%, 100%, 0.5) !important;
+}
+
+.ffPopup{
+    display: none;
+}
+
+@-moz-document url-prefix() {
+    .ffPopup {
+        display:flex;
+        max-width:35vw;
+        height:auto;
+        background-color:#eeeeee;
+        z-index: 9;
+        font-size: 1.6rem;
+        border-radius: 0 1.5rem 1.5rem 1.5rem;
+        flex-direction: column;
+        padding:1rem
+    }
+    p, ul{
+        margin:0rem;
+        padding:1rem;
+        text-align: center;
+        background-color: #0c949c;
+        color:white;
+        border-radius: 1.5rem;
+    }
+    ul{
+        margin: 1rem 0;
+    }
+    code{
+        margin:0;
+        padding:0;
+        font-size:1.4rem;
+    }
+    li{
+        margin:1rem;
+    }
+    .closeFFPopup{
+        color:#0c949c;
+        font-size: 2rem;
+        position:fixed;
+        margin: -1rem 0 0 -4rem;
+        padding:.5rem;
+        background-color: #eeeeee;
+        border-radius: 1.5rem 0 0 1.5rem;
+    }
 }
 
 .appWrap {
@@ -81,6 +123,7 @@ input:active, input:focus, select:active {
     height: 23rem;
     overflow: auto;
     resize: both;
+    border: 1px solid #ffffff40 !important;
     box-shadow: 0 12px 40px -6px #00000033 !important;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
@@ -146,10 +189,9 @@ input:active, input:focus, select:active {
     margin: 0.5rem;
     font-size: 1.5rem;
     border-radius: 1.5rem;
-    border: 1px solid #ffffff40;
     transition: 0.2s;
     background-color: #ffffff4d;
-    box-shadow: 0 0 25px -4px #1e1e3c2a;
+    box-shadow: 0 0 25px -4px #1e1e3c2a, 0 0 0 1px hsla(0, 0%, 100%, 0.5);
     transform: translateY(1rem);
 }
 
@@ -224,7 +266,12 @@ select {
     right: 5%;
     width: 25%;
 }
+.fa-plus-circle::before{
+    position: absolute;
+    top:0px;
+    left:0px;
 
+}
 .fa-chevron-circle-down {
     position: absolute;
     right: 0;
