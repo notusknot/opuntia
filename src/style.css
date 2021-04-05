@@ -519,10 +519,7 @@ h1 {
     text-align: center;
     margin:.5rem;
     margin-top:2.5rem;
-    border-radius: 1rem;
     max-width:25rem;
-    height: fit-content;
-    padding:.75rem;
 }
 
 .quoteButton{
