@@ -96,6 +96,7 @@ cornerCheckbox.addEventListener('change', switchThemeCorner, false);
 dragElement(document.getElementById('todoWrap'));
 dragElement(document.getElementById('weatherWrap'));
 dragElement(document.getElementById('calendarWrap'));
+dragElement(document.getElementById('quoteWrap'));
 function dragElement(elmnt) {
     var pos1 = 0,
         pos2 = 0,
@@ -427,17 +428,22 @@ load();
 const todoRemove = document.querySelector('#todoRemove');
 const todoWrap = document.querySelector('#todoWrap');
 todoRemove.addEventListener('click', () => {
-    todoWrap.style.display = 'none';
+    todoWrap.remove();
 });
 const weatherRemove = document.querySelector('#weatherRemove');
 const weatherWrap = document.querySelector('#weatherWrap');
 weatherRemove.addEventListener('click', () => {
-    weatherWrap.style.display = 'none';
+    weatherWrap.remove();
 });
 const calendarRemove = document.querySelector('#calendarRemove');
 const calendarWrap = document.querySelector('#calendarWrap');
 calendarRemove.addEventListener('click', () => {
-    calendarWrap.style.display = 'none';
+    calendarWrap.remove();
+});
+const quoteRemove = document.querySelector('#quoteRemove');
+const quoteWrap = document.querySelector('#quoteWrap');
+quoteRemove.addEventListener('click', () => {
+    quoteWrap.remove();
 });
 const ffPopupRemove = document.querySelector('.closeFFPopup');
 const ffPopup = document.querySelector('.ffPopup');
@@ -445,3 +451,19 @@ ffPopupRemove.addEventListener('click', () => {
     ffPopup.remove();
 });
 
+function quoteClicked() {
+    let quotes = ['Because of your smile, you make life more beautiful. Thich Nhat Hanh',
+    'Beauty in things exists in the mind which contemplates them. David Hume',
+    'The seeds of beauty are in humility. Maxime Lagacé',
+    'Everything has beauty, but not everyone sees it. Confucius',
+    'The future belongs to those who believe in the beauty of their dreams. Eleanor Roosevelt',
+    'You are imperfect, permanently and inevitably flawed. And you are beautiful. Amy Bloom',
+    'Beauty begins the moment you decide to be yourself. Coco Chanel',
+    'You may be one person to the world but you may also be the world to one person. Audrey Hepburn',
+    'The best way to pay for a lovely moment is to enjoy it. Richard Bach',
+    'It’s just a bad day. Not a bad life. Unknown',
+    'Whenever you are creating beauty around you, you are restoring your own soul. Alice Walker',
+    'This is a wonderful day, I have never seen this one before. Maya Angelou']
+    let quote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.querySelector('.quoteBox').innerHTML = quote;
+}

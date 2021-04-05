@@ -10,19 +10,13 @@ body {
     justify-content: center;
     min-height: 100vh;
     min-width: 100vw;
-
-    font-family: 'Poppins', sans-serif;
+    max-width: 100vw;
+    font-family: "Poppins", sans-serif;
     background: linear-gradient(-135deg, #fc466b, #3f5efb);
     overflow: hidden;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
-    }
-}
-
-.button, button, input {
+.iconButton, button, input {
     border-radius: 1.5rem;
     transition: 0.2s;
     border: none;
@@ -40,11 +34,20 @@ input {
     height: 3rem;
     padding: 0.3rem 1rem;
     font-size: 1.5rem;
-    transition: background-color .2s !important;
-    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.2s !important;
+    font-family: "Poppins", sans-serif;
 }
 
-.button, button {
+button{
+    height:2.5rem;
+    width:7.5rem;
+    font-size:1.5rem;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+
+}
+
+.iconButton ,.completeButton,.trashButton{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,22 +57,30 @@ input {
     cursor: pointer;
 }
 
-input:active, input:focus, select:active, select:focus {
+input:active, input:focus, select:active, select:focus{
     background-color: #ffffff80 !important;
-    outline:none;
+    outline: none;
+}
+:focus{
+    outline: none;
 }
 
-.button:hover, button:hover, button:focus, button:active, .button:focus,.button:active {
+.button:hover, .iconButton:hover,
+.iconButton:focus, .iconButton:active,
+.button:focus, .button:active {
     color: #fff;
 }
 
 .glass {
-    border-radius: 1.5rem !important;
-    background-color: #ffffff4d !important;
-    border:none !important;
+    border-radius: 1.5rem;
+    background-color: #ffffff59;
+    border: none;
     transition: box-shadow 0.3s, opacity 0.3s, backdrop-filter 0.3s, border-radius 0.3s, -webkit-backdrop-filter 0.3s;
-    box-shadow: 0px 12px 30px -6px rgba(30, 30, 60, 0.15), 
-                0px 0px 0px 1px hsla(0, 0%, 100%, 0.5) !important;
+    box-shadow: 0 12px 30px -6px rgba(30, 30, 60, 0.15), 0 0 0 1px hsla(0, 0%, 100%, 0.5) !important;
+}
+
+.ffPopup {
+    display: none;
 }
 
 .ffPopup{
@@ -88,7 +99,7 @@ input:active, input:focus, select:active, select:focus {
         flex-direction: column;
         padding:1rem
     }
-    p, .instructionList{
+    .instructionList,.instructionParagraph{
         margin:0rem;
         padding:1rem;
         text-align: center;
@@ -118,13 +129,17 @@ input:active, input:focus, select:active, select:focus {
     }
 }
 
+
+
+
 .appWrap {
     position: absolute;
     padding-top: 6rem;
-    min-width: 1%;
     width: 23rem;
     height: 23rem;
-    overflow: auto;
+    min-width: 6rem;
+    min-height:6rem;
+    overflow: hidden;
     resize: both;
     border: 1px solid #ffffff40 !important;
     box-shadow: 0 12px 40px -6px #00000033 !important;
@@ -193,7 +208,7 @@ input:active, input:focus, select:active, select:focus {
     font-size: 1.5rem;
     border-radius: 1.5rem;
     transition: opacity 0.2s;
-    background-color: #ffffff4d;
+    background-color: #ffffff59;
     box-shadow: 0 0 25px -4px #1e1e3c2a, 0 0 0 1px hsla(0, 0%, 100%, 0.5);
     transform: translateY(1rem);
 }
@@ -209,13 +224,14 @@ input:active, input:focus, select:active, select:focus {
     box-shadow: -25px 0 25px -13px rgba(30, 30, 60, 0.15);
 }
 
-.completeButton, .trashButton, select {
+.completeButton, .trashButton {
     height: 3rem;
-    background-color: #ffffff4d;
+    background-color: #ffffff59;
 }
 
 .trashButton {
     padding: 0 0.9rem;
+    width:3rem;
     font-size: 1rem;
     color: #303030;
     box-shadow: -25px 0 25px -13px rgba(30, 30, 60, 0.15);
@@ -227,6 +243,7 @@ input:active, input:focus, select:active, select:focus {
 
 .completeButton {
     padding: 0 4rem 0 1.5rem;
+
 }
 
 .completeButton:hover {
@@ -258,6 +275,7 @@ select {
     appearance: none;
     font-size: 1.5rem;
     width: 100%;
+    height: 3rem;
     padding: 0.3rem 1rem;
     cursor: pointer;
 }
@@ -269,23 +287,24 @@ select {
     width: 25%;
 }
 
-.filterTodo{
+.filterTodo {
     transition: background-color 0.2s;
 }
 
-.fa-plus-circle::before{
+.fa-plus-circle::before {
     position: absolute;
-    top:0px;
-    left:0px;
-
+    top: 0;
+    left: 0;
 }
+
 .fa-chevron-circle-down {
     position: absolute;
     right: 0;
     font-size: 3rem;
 }
 
-#weekdays div, .city, .date, .highLow, .temp, .weather {
+#weekdays div,
+.city, .date, .highLow, .temp, .weather {
     display: flex;
     justify-content: center;
 }
@@ -311,8 +330,8 @@ select {
     color: #303030;
 }
 
-#backButton:hover, #nextButton:hover,
-#backButton:focus, #nextButton:focus,
+#backButton:hover, #nextButton:hover, 
+#backButton:focus, #nextButton:focus, 
 #backButton:active, #nextButton:active {
     background-color: #fff;
 }
@@ -402,7 +421,7 @@ select {
     height: 2.5rem;
     padding: 0;
     font-size: 1.5rem;
-    background-color: #0000004d;
+    background-color: #00000059;
 }
 
 #closeButton, #saveButton {
@@ -456,7 +475,7 @@ body.corner * {
     backdrop-filter: blur(12px);
     font-size: 2rem;
     color: #ffffff80;
-    background-color: #ffffff4d;
+    background-color: #ffffff59;
 }
 
 .addElementModal {
@@ -464,7 +483,7 @@ body.corner * {
     height: 70%;
     z-index: 4;
     border-radius: 1.5rem;
-    background-color: #ffffff4d;
+    background-color: #ffffff59;
     box-shadow: 0 0 40px -6px #00000033;
     padding: 1rem;
     align-items: center;
@@ -514,6 +533,34 @@ h1 {
     width: 2rem;
 }
 
+#quoteWrap {
+    padding:0;
+    display: flex;
+    justify-content: center;
+}
+
+.quoteBox{
+    font-size:2rem;
+    text-align: center;
+    margin:.5rem;
+    margin-top:2.5rem;
+    border-radius: 1rem;
+    max-width:25rem;
+    height: fit-content;
+    padding:.75rem;
+}
+
+.quoteButton{
+    min-width:11rem;
+    position: absolute;
+    bottom:1rem;
+    transition: background-color .2s;
+}
+
+.quoteButton:hover,.quoteButton:focus{
+    background-color: #ffffff;
+}
+
 img {
     width: 15rem;
     border-radius: 12px;
@@ -523,10 +570,10 @@ img {
 .dropButton {
     height: 3rem;
     font-size: 1.5rem;
-    transition: border-radius 0.5s, color .5s;
+    transition: border-radius 0.5s, color 0.5s;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    background-color: #ffffff4d;
+    background-color: #ffffff59;
 }
 
 .dropDown:hover .dropButton {
@@ -543,24 +590,33 @@ img {
 
 .dropDownContent, .label {
     position: absolute;
-    background-color: #ffffff4d;
+    background-color: #ffffff59;
 }
 
 .dropDownContent {
     top: 3rem;
     right: -27rem;
     width: 18rem;
-    height: 10rem;
+    height: 13.5rem;
     opacity: 0;
-    transition:.4s cubic-bezier(0.75, 0, 1, 1) 0s;
+    transition: transform 0.45s cubic-bezier(0.75, 0, 1, 1), opacity 0.4s cubic-bezier(0.75, 0, 1, 1);
+    transform: translateX(1rem);
     border-radius: 1.5rem 0 1.5rem 1.5rem !important;
-    border:none !important;
+    border: none !important;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
 }
+
+.clearLocalStorage{
+    position: absolute;
+    top:9rem;
+    margin:1rem;
+    width:calc(100% - 2rem);
+}
+
 .dropDown:hover .dropDownContent {
     opacity: 1;
-    transition: .7s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    transition: transform 0.75s cubic-bezier(0.215, 0.61, 0.355, 1), opacity .7s cubic-bezier(0.215, 0.61, 0.355, 1);
     transform: translateX(-27rem);
 }
 
@@ -578,15 +634,20 @@ img {
     cursor: pointer;
 }
 
-#dark, #darkName {
+#dark,
+#darkName {
     top: 4rem;
 }
 
-#checkbox2:checked + .label .ball, #checkbox3:checked + .label .ball, #checkbox:checked + .label .ball {
+#checkbox2:checked + .label .ball,
+#checkbox3:checked + .label .ball,
+#checkbox:checked + .label .ball {
     transform: translateX(1.9rem);
 }
 
-#checkbox2:checked + .label, #checkbox3:checked + .label, #checkbox:checked + .label {
+#checkbox2:checked + .label,
+#checkbox3:checked + .label,
+#checkbox:checked + .label {
     background-color: #ffffffa6;
 }
 
@@ -612,15 +673,16 @@ img {
     top: 7rem;
 }
 
-.link, a {
+.link,
+a {
     position: absolute;
     top: 0;
     left: 0.5rem;
     opacity: 0.3;
     font-size: 2rem;
-    transition: .4s cubic-bezier(0.75, 0, 1, 1) 0s;
+    transition: 0.4s cubic-bezier(0.75, 0, 1, 1) 0s;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .link {
@@ -634,7 +696,7 @@ a:hover {
 
 a:hover .link {
     transform: translateX(27.5rem);
-    transition: .7s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    transition: 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
     opacity: 1;
 }
 
@@ -642,6 +704,12 @@ aria-label {
     font-size: 0;
 }
 
-::placeholder {color: #303030;}
-::-moz-placeholder{color: #303030;}
-::-webkit-input-placeholder{color: #303030;}
+::placeholder {color: #303030; opacity: 1;}
+::-moz-placeholder {color: #303030; opacity: 1;}
+::-webkit-input-placeholder {color: #303030; opacity: 1;}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
