@@ -1,4 +1,3 @@
-//THEME SWAP
 const flatCheckbox = document.querySelector('#checkbox');
 const darkCheckbox = document.querySelector('#checkbox2');
 const cornerCheckbox = document.querySelector('#checkbox3');
@@ -78,9 +77,6 @@ function switchThemeCorner(e) {
 }
 cornerCheckbox.addEventListener('change', switchThemeCorner, false);
 
-
-//DRAGGING
-
 dragElement(document.getElementById('todoWrap'));
 dragElement(document.getElementById('weatherWrap'));
 dragElement(document.getElementById('calendarWrap'));
@@ -118,8 +114,6 @@ function dragElement(elmnt) {
         document.onmousemove = null;
     }
 }
-
-//TODO
 
 const todoInput = document.querySelector('.todoInput');
 const todoButton = document.querySelector('.todoButton');
@@ -234,8 +228,6 @@ function removeLocalTodos(todo) {
     todos.splice(todos.indexOf(todoIndex), 1);
     localStorage.setItem('todos', JSON.stringify(todos));
 }
-
-//WEATHER
 
 const searchbox = document.querySelector('.searchBox');
 const api = {
@@ -451,7 +443,7 @@ function quoteClicked() {
     'The best way to pay for a lovely moment is to enjoy it. Richard Bach',
     'It’s just a bad day. Not a bad life. Unknown',
     'Whenever you are creating beauty around you, you are restoring your own soul. Alice Walker',
-    'This is a wonderful day, I have never seen this one before. Maya Angelou']
+    'This is a wonderful day, I have never seen this one before. Maya Angelou'];
     let quote = quotes[Math.floor(Math.random() * quotes.length)];
     document.querySelector('.quoteBox').innerHTML = quote;
 }
