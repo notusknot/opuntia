@@ -508,31 +508,6 @@ h1 {
     text-align: center;
 }
 
-.addElementSelect {
-    width: 3rem;
-    height: 3rem;
-    position: relative;
-    top: 0;
-    left: 0;
-    border: 0;
-}
-
-.addElementDiv {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 2rem;
-    max-height: 33%;
-    width: 100%;
-}
-
-.closeModalButton {
-    font-size: 2rem;
-    position: absolute;
-    top: calc(15% + 1lhlrem);
-    width: 2rem;
-}
-
 #quoteWrap {
     padding:0;
     display: flex;

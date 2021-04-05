@@ -1,15 +1,3 @@
-const addButton = document.querySelector('.addButton');
-const closeModalButton = document.querySelector('.closeModalButton');
-const addElementModalBD = document.querySelector('.addElementModalBD');
-
-addElementModalBD.style.display = 'none';
-addButton.addEventListener('click', () => {
-    addElementModalBD.style.display = 'inherit';
-});
-closeModalButton.addEventListener('click', () => {
-    addElementModalBD.style.display = 'none';
-});
-addElementModalBD.style.display = 'none';
 //THEME SWAP
 const flatCheckbox = document.querySelector('#checkbox');
 const darkCheckbox = document.querySelector('#checkbox2');
