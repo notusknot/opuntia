@@ -1,9 +1,5 @@
-OPUNTIA OPEN SOURCE ON GITHUB
-CSS LINK FOR DESIGN PURPOSES.
-
 
 *{
-    box-sizing: border-box;
 }
 
 
@@ -59,5 +55,4 @@ CSS LINK FOR DESIGN PURPOSES.
 /*Simulate page content*/
 .main-content{
     background: url("https://media.discordapp.net/attachments/753552465621811261/834324264626552832/null.png?width=4000&height=4000) center no-repeat;
-    background-size: cover;
 }

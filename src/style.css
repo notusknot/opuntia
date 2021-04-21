@@ -648,7 +648,7 @@ img {
 .link,
 a {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0.5rem;
     opacity: 0.3;
     font-size: 2rem;
@@ -660,14 +660,6 @@ a {
 .link {
     left: -25rem;
     top: 0.5rem;
-}
-
-.sublink{
-    left: -25rem;
-    margin: 2;
-    opacity: 0.3;
-    color: #fff;
-    transition: 0.4s cubic-bezier(0.75, 0, 1, 1) 0s;
 }
 
 a:hover {
