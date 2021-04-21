@@ -1,4 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
+<style>
+    a{
+        text-decoration:none;
+    }
+</style>
 <html lang="en">
     <head>
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -11,8 +16,23 @@
         <title>Opuntia</title>
     </head>
     <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create and add loader to website</title>
+    <link rel="stylesheet" href="http://chr155.ml/opuntia/styles.css">
+</head>
+<body>
+<div class='spinner-wrapper'>
+    <div class="spinner"><p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><img src="https://cdn.discordapp.com/attachments/753552465621811261/834304320387678228/cooltext382107973358243.png" /></p></div>
+</div>
 
-        <div class="dropDown">
+<div class="main-content"> <div class="dropDown">
             <button class="dropButton iconButton"><i class="fas fa-bars" aria-label="Enter settings menu"></i></button>
             <div class="dropDownContent glass">
                 <div class="settingName" id="flatName">No Shadows</div>
@@ -127,6 +147,7 @@
         <a href="https://github.com/notusknot/opuntia" rel="noopener" target="_blank">
             <i class="fab fa-github">
                 <div class="link">Contribute on GitHub</div>
+                <div class="sublink">        <h2 id="textShadowPeview" style="text-shadow: #ffffff 0px 0px 5px, #ffffff 0px 0px 10px, #ffffff 0px 0px 15px, #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px, #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px, rgba(206, 89, 55, 0) 2px 2px 2px; color: #ffffff; text-align: left;"><span style="color: #ffffff;"><a style="color: #ffffff;" href="https://github.com/notusknot/opuntia" onclick="window.exit();">Exit opuntia</a></span></h2></div>
             </i>
         </a>
 
@@ -138,5 +159,20 @@
             <p class='quoteBox'></div>
         </div>
         <script src="src/app.js" defer></script>
+        <p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
     </body>
+</html></div>
+
+<script>
+    let spinnerWrapper = document.querySelector('.spinner-wrapper');
+
+    window.addEventListener('load', function () {
+        // spinnerWrapper.style.display = 'none';
+        spinnerWrapper.parentElement.removeChild(spinnerWrapper);
+    });
+</script>
+</body>
 </html>
