@@ -6,6 +6,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/notusknot/opuntia?logo=github)
 
 ![Opuntia logo](https://media.discordapp.net/attachments/753552465621811261/834304054523592724/cooltext382107936467064.png)
+
 Opuntia is a simple, open source, and customizeable productivity website build with vanilla HTML5, JavaScript, and CSS.
 
 ![Screenshot of Opuntia](/images/screenshot.webp)
